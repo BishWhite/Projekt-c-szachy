@@ -40,8 +40,4 @@ make
   
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
-```shell script
-cd cmake-build-debug
-./ultimateTerminalChess
-```
+
