@@ -18,7 +18,19 @@ Program po uruchomieniu rysuje poczatkowa szachownice i oczekuje na ruch np.: "a
 ![App Screenshot](https://github.com/BishWhite/Projekt-c-szachy/blob/main/szachy.png)
 
   
-## Installation 
+## Installation
+Aby uruchomić należy wykonać podane instrukcje, w przypadku braku należy zainstalować cmake (instrukcją ```sudo apt install cmake```)
+
+
+```sh
+git clone https://github.com/BishWhite/Projekt-c-szachy.git 
+cd Projekt-c-szachy 
+mkdir build
+cd build
+cmake ..
+make 
+./ultimateTerminalChess
+```
 
     
 ## Authors
