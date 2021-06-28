@@ -15,7 +15,7 @@ Program po uruchomieniu rysuje poczatkowa szachownice i oczekuje na ruch np.: "a
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/BishWhite/Projekt-c-szachy/blob/main/szachy.png)
 
   
 ## Installation 
