@@ -787,7 +787,7 @@ int Board::turn(string move) {
 
     }
 
-
+    return 1;
 }
 void Board::print() {
     cout <<BOLDMAGENTA <<  "    | H | G | F | E | D | C | B | A |" << RESET;
