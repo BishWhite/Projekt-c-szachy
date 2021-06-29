@@ -598,12 +598,60 @@ int Board::turn(string move) {
 
         } else if (fields[ whatY ][ whatX ].name == "K") {
 
-            if(abs(whereY-whatY)==1 && whatX==whereX){
+            if((abs(whereY-whatY)==1 && whatX==whereX)|| (whatY==whereY && abs(whereX-whatX)==1)|| (abs(whereY-whatY)==1 && abs(whereX-whatX)==1)){
                 if(fields[whereY][whereX].name!= "E" && fields[whereY][whereX].color!=fields[whatY][whatX].color){
+
+
                     string tmp_name= fields[whereY][whereX].name;
                     fields[whereY][whereX] = fields[whatY][whatX];
                     fields[whatY][whatX].name = "E";
-                    return turnBack(whatX,whatY,whereX,whereY,tmp_name);
+                    if(fields[whereY][whereX].color){
+                        x_black = whereX;
+                        y_black = whereY;
+                        if(turnBack(whatX,whatY,whereX,whereY,tmp_name)){
+                            x_black = whatX;
+                            y_black = whatY;
+                            return 1;
+                        }
+                    }
+                    else {
+                        x_white = whereX;
+                        y_white = whereY;
+                        if(turnBack(whatX,whatY,whereX,whereY,tmp_name)){
+                            x_white = whatX;
+                            y_white = whatY;
+                            return 1;
+                        }
+                    }
+
+
+                    return 0;
+
+                }
+                else if(fields[whereY][whereX].name == "E"){
+                    string tmp_name= fields[whereY][whereX].name;
+                    fields[whereY][whereX] = fields[whatY][whatX];
+                    fields[whatY][whatX].name = "E";
+
+                    if(fields[whereY][whereX].color){
+                        x_black = whereX;
+                        y_black = whereY;
+                        if(turnBack(whatX,whatY,whereX,whereY,tmp_name)){
+                            x_black = whatX;
+                            y_black = whatY;
+                            return 1;
+                        }
+                    }
+                    else {
+                        x_white = whereX;
+                        y_white = whereY;
+                        if(turnBack(whatX,whatY,whereX,whereY,tmp_name)){
+                            x_white = whatX;
+                            y_white = whatY;
+                            return 1;
+                        }
+                    }
+                    return 0;
 
                 }
                 else {
@@ -611,33 +659,7 @@ int Board::turn(string move) {
                     return 1;
                 }
             }
-            else if(whatY==whereY && abs(whereX-whatX)==1){
-                if(fields[whereY][whereX].name!= "E" && fields[whereY][whereX].color!=fields[whatY][whatX].color){
-                    string tmp_name= fields[whereY][whereX].name;
-                    fields[whereY][whereX] = fields[whatY][whatX];
-                    fields[whatY][whatX].name = "E";
-                    return turnBack(whatX,whatY,whereX,whereY,tmp_name);
 
-                }
-                else {
-                    cout << RED << "Wrong format" << RESET << endl;
-                    return 1;
-                }
-
-            }
-            else if(abs(whereY-whatY)==1 && abs(whereX-whatX)==1){
-                if(fields[whereY][whereX].name!= "E" && fields[whereY][whereX].color!=fields[whatY][whatX].color){
-                    string tmp_name= fields[whereY][whereX].name;
-                    fields[whereY][whereX] = fields[whatY][whatX];
-                    fields[whatY][whatX].name = "E";
-                    return turnBack(whatX,whatY,whereX,whereY,tmp_name);
-
-                }
-                else {
-                    cout << RED << "Wrong format" << RESET << endl;
-                    return 1;
-                }
-            }
             else {
                 cout << RED << "Wrong format" << RESET << endl;
                 return 1;
