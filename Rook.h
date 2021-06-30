@@ -19,7 +19,7 @@ public:
     bool color;
     string name = "R";
     Rook( int x, int y, int x0, int y0, bool color);
-    bool r_move();
+    
 
 
     ~Rook();
