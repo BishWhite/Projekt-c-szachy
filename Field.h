@@ -14,8 +14,8 @@ class Field {
 
 public:
     Field(int x,int y);
-     virtual ~Field();
-    virtual pair<int,int>position();
+      ~Field();
+     pair<int,int>position();
 
     string name="E";
     bool color;
